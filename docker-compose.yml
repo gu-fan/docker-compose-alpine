@@ -6,7 +6,8 @@ web:
     - "3000"
   links:
     - "db:redis"
-  command: nodemon -L app/bin/www
+  # command: nodemon -L app/bin/www
+  command: gulp
 
 nginx:
   restart: always
