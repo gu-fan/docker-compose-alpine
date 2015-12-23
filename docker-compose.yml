@@ -1,7 +1,7 @@
 web:
-  build: ./app
+  build: ./web
   volumes:
-    - "app:/src/app"
+    - "web/app:/web/app"
   expose:
     - "3000"
   links:

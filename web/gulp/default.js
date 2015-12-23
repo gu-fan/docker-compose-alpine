@@ -39,6 +39,7 @@ function watch_task(debug) {
         p = spawn('gulp', ['watch'], {stdio:'inherit', env: process.env})
     } else {
         gutil.log(chalk.blue('======= Start Watch ======='))
+        console.log('???????')
         p = spawn('gulp', ['watch'], {stdio:'inherit', env:process.env})
     }
 }
@@ -60,7 +61,7 @@ gulp.task('debug', function() {
 gulp.task('gulp-reload', function(){
 
     if (p && !p.killed) {
-        gutil.log('kill ' + p.pid)
+        gutil.log('kill gulp:' + p.pid)
         p.kill()
     } else {
         gutil.log('already dead')

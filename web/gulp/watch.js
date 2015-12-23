@@ -29,7 +29,8 @@ function restart_server() {
 }
 function start_server(){
 
-    s = spawn('node',['bin/www'], {
+    console.log('ssssss')
+    s = spawn('node',['/web/app/bin/www'], {
         stdio:'inherit',
         env : {
             "NODE_ENV": "development",
@@ -37,14 +38,18 @@ function start_server(){
             "LIVERELOAD": "TRUE",
         },
     })
+
+
+    console.log('ssssss')
+    console.log('ssssss')
     console.log('start server:'+ s.pid)
 
-    if (!is_start) { 
-        lr.listen() 
-        is_start = true
-    } else {
-        lr.reload() 
-    }
+    // if (!is_start) { 
+    //     lr.listen() 
+    //     is_start = true
+    // } else {
+    //     lr.reload() 
+    // }
 
     // Start nodemon server
 //     nodemon({
