@@ -59,6 +59,7 @@ gulp.task('debug', function() {
 });
 
 gulp.task('gulp-reload', function(){
+console.log('reload')
 
     if (p && !p.killed) {
         gutil.log('kill gulp:' + p.pid)

@@ -29,27 +29,23 @@ function restart_server() {
 }
 function start_server(){
 
-    console.log('ssssss')
+    var spawn=require('child_process').spawn
+    var ENV = process.env
+    ENV.NODE_ENV = "development"
+    ENV.PORT = "3000"
+    ENV.LIVERELOAD = "TRUE"
     s = spawn('node',['/web/app/bin/www'], {
-        stdio:'inherit',
-        env : {
-            "NODE_ENV": "development",
-            "PORT": "3000",
-            "LIVERELOAD": "TRUE",
-        },
+        env : ENV
     })
 
-
-    console.log('ssssss')
-    console.log('ssssss')
     console.log('start server:'+ s.pid)
 
-    // if (!is_start) { 
-    //     lr.listen() 
-    //     is_start = true
-    // } else {
-    //     lr.reload() 
-    // }
+    if (!is_start) { 
+        lr.listen() 
+        is_start = true
+    } else {
+        lr.reload() 
+    }
 
     // Start nodemon server
 //     nodemon({
