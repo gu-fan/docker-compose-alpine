@@ -5,7 +5,6 @@
 # last week: date -v-1w '+%Y_%m_%d' 
 # last month: date -v-1m '+%Y_%m_%d' 
 
-
 if [ -n "$1" ]              # Tested variable is quoted.
 then
   echo Restore: $(date -v$1 +%Y_%m_%d)
