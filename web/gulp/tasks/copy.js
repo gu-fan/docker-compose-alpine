@@ -26,6 +26,7 @@ var gutil = require("gulp-util");
 
 gulp.task('assets', function() {
     gutil.log('Copy assets');
+    console.log(process.cwd())
     gulp.src('./client/assets/**/*.*')
         .pipe(plumber())
         .pipe(gulp.dest('../public'))

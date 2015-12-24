@@ -15,7 +15,7 @@ var p_lo = new Promise(function(resolve, reject){
     var t = new Date().getTime()
     var lo_tpl, lo_html
     for (var i=0; i < count; ++i) {
-        lo_tpl = _.template(require('tpl/lodash.tpl'));
+        lo_tpl = _.template(require('js/tpl/lodash.tpl'));
         lo_html = lo_tpl({name:'browserify:lodash template',stories:stories});
     }
     post({name:'lodash',  time:new Date().getTime() - t , num:count}) 
@@ -27,7 +27,7 @@ var p_ha = new Promise(function(resolve, reject){
     var tpl, html, eng = require('handlebars')
     var t = new Date().getTime()
     for (var i=0; i < count; ++i) {
-        tpl = eng.compile(require('tpl/handlebars.tpl'));
+        tpl = eng.compile(require('js/tpl/handlebars.tpl'));
         html = tpl({name:'browserify:handlebars template',stories:stories});
     }
     resolve({name:'handlebars',  time:new Date().getTime() - t , num:count}) 
@@ -38,7 +38,7 @@ var p_ar = new Promise(function(resolve, rejectl){
     var tpl, html, eng = require('art-template')
     var t = new Date().getTime()
     for (var i=0; i < count; ++i) {
-        tpl = eng.compile(require('tpl/art_template.tpl'));
+        tpl = eng.compile(require('js/tpl/art_template.tpl'));
         html = tpl({name:'browserify:art_template',stories:stories});
     }
     post({name:'art_template',  time:new Date().getTime() - t , num:count}) 
@@ -49,7 +49,7 @@ var p_sw = new Promise(function(resolve, rejectl){
     var tpl, html, eng = require('swig')
     var t = new Date().getTime()
     for (var i=0; i < count; ++i) {
-        tpl = eng.compile(require('tpl/swig.tpl'));
+        tpl = eng.compile(require('js/tpl/swig.tpl'));
         html = tpl({name:'browserify:swig template',stories:stories});
     }
     post({name:'swig',  time:new Date().getTime() - t , num:count}) 

@@ -2,6 +2,8 @@
  */
 
 console.log(1)
+console.log(2)
+console.log(3)
 // var swig = require('swig');
 // var sw_tpl, sw_html
 // sw_tpl = swig.compile(require('tpl/swig.tpl'));
@@ -14,7 +16,7 @@ var $ = require('jquery/dist/jquery')
 
 console.log($)
 
-require('worker2')
+// require('js/worker2')
 
 // if (window.Worker) {
 //     var myWorker = new Worker("js/worker2.js");
@@ -27,3 +29,4 @@ require('worker2')
 //     }
 // } else {
 // }
+require('js/test')

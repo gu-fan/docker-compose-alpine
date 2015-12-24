@@ -44,7 +44,7 @@ function watch_task(debug) {
     }
 }
 
-gulp.task('default', function (){
+gulp.task('default', ['cwd', 'build'], function(){
 
     main_task()
     watch_task()
@@ -59,7 +59,6 @@ gulp.task('debug', function() {
 });
 
 gulp.task('gulp-reload', function(){
-console.log('reload')
 
     if (p && !p.killed) {
         gutil.log('kill gulp:' + p.pid)

@@ -17,3 +17,22 @@ server {
   }
 
 }
+server {
+
+  listen 35729;
+  server_name example.org;
+  access_log /var/log/nginx/nodejs_project.log;
+  charset utf-8;
+
+  location / {
+    proxy_pass http://web:35729;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+
+}
+

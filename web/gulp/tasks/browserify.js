@@ -16,9 +16,9 @@ var watchify = require('watchify');
 
 gulp.task('browserify-js', function(done){
 
-    gutil.log('Bundle Browserify')
+    gutil.log('Bundle Browserify js')
     // web/app
-    // console.log(process.cwd())
+    console.log(process.cwd())
     // NOTE: ONLY Bundle the first dir of file.
     glob('./client/js/*.js', function(err, files){
 
@@ -27,7 +27,7 @@ gulp.task('browserify-js', function(done){
         var tasks = files.map(function(entry) {
             // XXX
             // What's the correct path ?????
-            return browserify({paths:['./client/js',
+            return browserify({paths:['./client',
                                     '../bower_components'],
                                plugin:[watchify],
                                cache:{},
@@ -52,7 +52,7 @@ gulp.task('browserify-js', function(done){
 
 gulp.task('browserify-jsx', function(done){
 
-    gutil.log('Bundle Browserify')
+    gutil.log('Bundle Browserify jsx')
     console.log(process.cwd())
     // NOTE: ONLY Bundle the first dir of file.
     glob('./client/js/*.js', function(err, files){
@@ -81,6 +81,10 @@ gulp.task('browserify-jsx', function(done){
 
     })
 
+})
+
+gulp.task('browserify', ['browserify-js', 'browserify-jsx'], function(){
+    gutil.log('Bundle Browserify')
 })
 
 watch_list.push([['client/js/**/*.js', 'client/js/**/*.tpl', 'client/js/**/*.svg'], ['browserify-js']])
