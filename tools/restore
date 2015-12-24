@@ -1,0 +1,16 @@
+#!/usr/bin/env /bin/sh
+# restore -1d
+# restore with yesterday's data
+# yesterday: date -v-1d '+%Y_%m_%d' 
+# last week: date -v-1w '+%Y_%m_%d' 
+# last month: date -v-1m '+%Y_%m_%d' 
+
+
+if [ -n "$1" ]              # Tested variable is quoted.
+then
+  echo Restore: $(date -v$1 +%Y_%m_%d)
+  docker run --rm --volumes-from dockercomposenode_db_1 -v $(pwd)/backups:/backups ubuntu tar -xvf /backups/db_backup_$(date -v$1 +%Y_%m_%d).tar
+else
+  echo Restore: $(date +%Y_%m_%d)
+  docker run --rm --volumes-from dockercomposenode_db_1 -v $(pwd)/backups:/backups ubuntu tar -xvf /backups/db_backup_$(date +%Y_%m_%d).tar
+fi 

@@ -1,0 +1,2 @@
+#!/usr/bin/env /bin/sh
+docker run --rm --volumes-from dockercomposenode_db_1 -v $(pwd)/backups:/backups ubuntu tar -cvf /backups/db_backup_$(date +%Y_%m_%d).tar /data
