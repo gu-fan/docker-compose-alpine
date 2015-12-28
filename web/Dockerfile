@@ -1,4 +1,6 @@
-FROM node:0.10.38
+FROM gliderlabs/alpine:3.3
+RUN apk add --no-cache nodejs
+RUN apk add --no-cache git
 
 RUN mkdir /web
 
@@ -7,6 +9,7 @@ WORKDIR /web
 RUN npm install nodemon -g
 RUN npm install gulp -g
 RUN npm install bower -g
+
 
 ADD package.json package.json
 RUN npm install

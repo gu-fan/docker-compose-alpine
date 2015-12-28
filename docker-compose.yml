@@ -5,13 +5,13 @@ web:
   expose:
     - "3000"
   links:
-    - "db:redis"
+    - "redis:redis"
   # command: nodemon -L app/bin/www
   command: gulp
 
 nginx:
   restart: always
-  build: ./nginx/
+  build: ./nginx
   ports:
     - "80:80"
     - "35729:35729"
@@ -22,5 +22,8 @@ nginx:
   links:
     - web:web
 
-db:
-  image: redis
+# db:
+#   image: redis
+#
+redis:
+  build: ./redis

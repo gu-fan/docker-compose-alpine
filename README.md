@@ -1,4 +1,4 @@
-# Nginx, Express, Redis and nodemon
+# Nginx, Express, Redis and nodemon With Alpine
 
 We've taken the setup from [step 02](https://github.com/b00giZm/docker-compose-nodejs-examples/tree/master/02-express-redis-nodemon) and made the app accessible through an [Nginx](http://nginx.org) server running in its own container.
 
