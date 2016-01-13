@@ -16,23 +16,5 @@ gulp.task('build', config.file_list, function(){
     gutil.log('Build Task Finished.')
 })
 gulp.task('cwd', function(){
-    // gutil.log('Build Task Finished.')
-    console.log(process.cwd())
     process.chdir('./app')
-    console.log(process.cwd())
-
-    // p = spawn('gulp', ['build-0'], {
-    //     stdio:'inherit',
-    //     cwd: path.join(process.cwd(), 'app'),
-    //     env: process.env
-    //     })
 })
-
-// gulp.task('build', function(){
-//     gutil.log('Build Task Finished.')
-//     p = spawn('gulp', ['build-0'], {
-//         stdio:'inherit',
-//         cwd: path.join(process.cwd(), 'app'),
-//         env: process.env
-//         })
-// })

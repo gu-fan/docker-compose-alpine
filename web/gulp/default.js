@@ -12,18 +12,18 @@ var p,i
 function main_task(debug){
 
     // The default task is merely a task manager
-    console.log('======= Start Gulp Task =======')
+    gutil.log(chalk.yellow('####### Start Gulp Task #######'))
 
     gulp.watch(['gulpfile.js', 'gulp/**/*.js'], ['gulp-reload']);
 
     process.on('exit', function(code) {
-        gutil.log('======= Finish Gulp Task=======')
+        gutil.log(chalk.yellow('####### Finish Gulp Task#######'))
     });
 
     if (debug == 'debug') { 
         i = spawn('node-inspector', {stdio:'inherit'})
         i.on('error',function(e){
-            console.log('node inspector not found, install:' + chalk.blue('npm install -g node-inspector'))
+            gutil.log('node inspector not found, install:' + chalk.blue('npm install -g node-inspector'))
         })
     }
 
@@ -39,7 +39,6 @@ function watch_task(debug) {
         p = spawn('gulp', ['watch'], {stdio:'inherit', env: process.env})
     } else {
         gutil.log(chalk.blue('======= Start Watch ======='))
-        console.log('???????')
         p = spawn('gulp', ['watch'], {stdio:'inherit', env:process.env})
     }
 }
