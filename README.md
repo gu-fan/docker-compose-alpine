@@ -1,3 +1,3 @@
 # Nginx, Express, Redis and nodemon With Alpine
 
-Update with alpine
+https://github.com/rykka/docker-compose-alpine
